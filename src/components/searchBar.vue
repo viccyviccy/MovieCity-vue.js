@@ -17,6 +17,7 @@ export default {
     return {
       search: '',
       timeout: null,
+      API_KEY: 'cS08GYxSoBEhxhMJF9aru2uKSPw8CKEf',
     };
   },
   methods: {
@@ -28,7 +29,7 @@ export default {
     },
     makeSearch() {
       fetch(
-        `https://api.giphy.com/v1/gifs/search?api_key=dc6zaTOxFJmzC&q=${this.search}`,
+        `https://api.giphy.com/v1/gifs/search?api_key=${this.API_KEY}&q=${this.search}`,
       )
         .then(response => response.json())
         .then(result => {
