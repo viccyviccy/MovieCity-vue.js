@@ -1,17 +1,37 @@
 <template>
   <div class="home">
-    <theMovie />
+    <search-input @gifs-fetched="onGifsFetched" />
+    <theMovie :gifs="gifs" />
   </div>
 </template>
 
 <script>
-// @ is an alias to /src
+/* eslint-disable no-unused-vars */
+/* eslint-disable no-unused-vars */ /* eslint-disable no-unused-vars */
+
 import theMovie from '@/components/theMovie.vue';
+
+import SearchInput from '@/components/searchBar.vue';
+import GifList from '@/components/theMovie.vue';
 
 export default {
   name: 'Home',
   components: {
     theMovie,
+    SearchInput,
+    // eslint-disable-next-line vue/no-unused-components
+    GifList,
+  },
+  data() {
+    return {
+      gifs: [],
+    };
+  },
+  methods: {
+    onGifsFetched(result) {
+      console.log(result);
+      this.gifs = result.data;
+    },
   },
 };
 </script>
@@ -19,8 +39,11 @@ export default {
 <style scoped lang="scss">
 .home {
   display: flex;
-  justify-content: center;
+  flex-flow: column;
+  align-items: center;
   width: 70vw;
+  height: 70vh;
+  border: 1px solid black;
   background-color: rgba(255, 255, 255, 0.61);
 }
 
@@ -51,7 +74,4 @@ export default {
   background: rgba(0, 0, 0, 0.8);
   -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.5);
 }
-/* ::-webkit-scrollbar-thumb:window-inactive {
-  background: rgba(255, 0, 0, 0.4);
-} */
 </style>
