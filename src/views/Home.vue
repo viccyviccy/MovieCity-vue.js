@@ -43,8 +43,8 @@ export default {
   align-items: center;
   width: 70vw;
   height: 70vh;
-  border: 1px solid black;
   background-color: rgba(255, 255, 255, 0.61);
+  font-family: Comic Sans MS, Comic Sans, cursive;
 }
 
 @media screen and (min-width: 320px) {

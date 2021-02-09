@@ -1,12 +1,5 @@
 <template>
   <div class="theMovie_div">
-    <!--    <ul class="theMovie_movieCard_div" id="theMovie_ul">
-      <li class="movieCard_div" v-for="el of showResults" :key="el">
-        <img src="{{el.image}}" alt="movie" class="movie_image" />
-        <p>Movie name in here</p>
-        <p></p>
-      </li>
-    </ul> -->
     <div id="gifList">
       <gif v-for="gif in gifs" :gif="gif" :key="gif.id" />
     </div>
@@ -29,10 +22,17 @@ export default {
   flex-flow: column;
   align-items: center;
   padding: 15px 20px;
+  font-family: Comic Sans MS, Comic Sans, cursive;
 }
 
 .theMovie_movieCard_div {
   display: flex;
+}
+
+#gifList {
+  display: flex;
+  flex-flow: wrap;
+  justify-content: center;
 }
 
 @media screen and (min-width: 320px) {
